@@ -1,19 +1,10 @@
 # CodeReloader
 
-**TODO: Add description**
+Code reloader Plug extracted from [Phoenix](https://github.com/phoenixframework/phoenix/) and adapted to be a generic Plug.
 
-## Installation
+So far it's just a proof of concept to understand if having a generic code reload Plug makes sense or not.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `code_reloader` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [{:code_reloader, "~> 0.1.0"}]
-end
-```
+## Usage
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/code_reloader](https://hexdocs.pm/code_reloader).
-
+The the example app at [https://github.com/pilu/code-reload-example](https://github.com/pilu/code-reload-example)
