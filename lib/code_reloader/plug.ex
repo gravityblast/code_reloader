@@ -56,7 +56,7 @@ defmodule CodeReloader.Plug do
   end
 
   defp do_call(conn, _reloader, endpoint) when is_nil(endpoint) do
-    Logger.info("CodeReloader: couldn't reload. opts[:endpoint] must be specified when using CodeReloader.Plug.")
+    Logger.error("CodeReloader: couldn't reload. opts[:endpoint] must be specified when using CodeReloader.Plug.")
     conn
   end
   defp do_call(conn, reloader, endpoint) do
