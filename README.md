@@ -2,11 +2,13 @@
 
 Code reloader Plug extracted from [Phoenix](https://github.com/phoenixframework/phoenix/) and adapted to be a generic Plug.
 
-If code changes outside of the VM e.g. you call `mix compile` in another shell, or your editor recompiles files automatically, any modules that changed on disk will be re-loaded: the Pheonix version doesn't currently handle this use case.
-
 ## Why
 
 If you have an Elixir web app using only Plug without Phoenix, you need to restart it everytime you update the code.
+
+This module uses `Mix` to compile any files changed on disk every time an HTTP request is received, allowing your server to keep running while you make changes.
+
+If code changes outside of the VM e.g. you call `mix compile` in another shell, or your editor recompiles files automatically, any modules that changed on disk will be re-loaded (the Pheonix version doesn't currently handle this use case).
 
 ## Usage
 
