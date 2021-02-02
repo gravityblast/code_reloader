@@ -14,6 +14,10 @@ defmodule CodeReloader.Proxy do
 
   ## Callbacks
 
+  def init(args) do
+    {:ok, args}
+  end
+
   def handle_call(:stop, _from, output) do
     {:stop, :normal, output, output}
   end
@@ -33,7 +37,7 @@ defmodule CodeReloader.Proxy do
         put_chars(from, reply, apply(m, f, as), output)
 
       {:io_request, _from, _reply, _request} = msg ->
-        send(Process.group_leader, msg)
+        send(Process.group_leader(), msg)
         {:noreply, output}
 
       _ ->
@@ -42,7 +46,7 @@ defmodule CodeReloader.Proxy do
   end
 
   defp put_chars(from, reply, chars, output) do
-    send(Process.group_leader, {:io_request, from, reply, {:put_chars, chars}})
+    send(Process.group_leader(), {:io_request, from, reply, {:put_chars, chars}})
     {:noreply, output <> IO.chardata_to_string(chars)}
   end
 end
